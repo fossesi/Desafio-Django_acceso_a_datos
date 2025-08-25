@@ -11,7 +11,7 @@ class Tarea (models.Model):
 class Subtarea (models.Model):
     descripcion = models.TextField()
     eliminada = models.BooleanField(default=False)
-    tarea_id = models.ForeignKey(Tarea, on_delete=models.CASCADE)
+    tarea_id = models.ForeignKey(Tarea, on_delete=models.CASCADE, related_name="subtareas")
 
     def __str__(self):
         return f"{self.tarea_id} - {self.descripcion} - {self.eliminada}"
